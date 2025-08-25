@@ -1,0 +1,35 @@
+# This is a Databricks asset bundle definition for books_databricks.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: books_databricks
+  uuid: 32595384-0614-4a1f-9a8f-4927f7d9adb3
+
+artifacts:
+  python_artifact:
+    type: whl
+    build: uv build --wheel
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-d7c40e54-59c2.cloud.databricks.com
+
+  staging:
+    mode: production
+    workspace:
+      host: https://dbc-d7c40e54-59c2.cloud.databricks.com
+      # We explicitly deploy to /Workspace/Users/anastasiia.kononova@adastragrp.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/anastasiia.kononova@adastragrp.com/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: anastasiia.kononova@adastragrp.com
+        level: CAN_MANAGE

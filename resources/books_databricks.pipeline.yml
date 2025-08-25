@@ -1,0 +1,14 @@
+# The main pipeline for books_databricks
+resources:
+  pipelines:
+    books_databricks_pipeline:
+      name: books_databricks_pipeline
+      catalog: workspace
+      schema: books_databricks_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
