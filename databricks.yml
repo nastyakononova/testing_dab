@@ -30,6 +30,8 @@ targets:
       host: https://dbc-d7c40e54-59c2.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/anastasiia.kononova@adastragrp.com to make sure we only have a single copy.
       root_path: /Workspace/Users/anastasiia.kononova@adastragrp.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      user_name: anastasiia.kononova@adastragrp.com
     permissions:
       - user_name: anastasiia.kononova@adastragrp.com
         level: CAN_MANAGE
