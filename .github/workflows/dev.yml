@@ -29,10 +29,6 @@ jobs:
       - run: pip3 install wheel
       - run: pip install -r requirements.txt
 
-      # Build the wheel
-      - name: Build Python wheel
-        run: python -m build --wheel
-
       - uses: databricks/setup-cli@main
 
       - run: databricks bundle deploy 
@@ -58,8 +54,6 @@ jobs:
 #       - run: pip install -r requirements.txt
 #         working-directory: .github/support
       # Build the wheel
-      - name: Build Python wheel
-        run: python -m build --wheel
 
       - uses: databricks/setup-cli@main
 
