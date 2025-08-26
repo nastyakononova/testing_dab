@@ -8,6 +8,12 @@ bundle:
 #  python_artifact:
 #    type: whl
 #    build: python -m build --wheel
+artifacts:
+  python_artifact:
+    type: whl
+    build: python -m build --wheel
+    path: dist/*.whl
+    
 
 include:
   - resources/*.yml
