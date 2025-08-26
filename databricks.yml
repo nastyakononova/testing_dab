@@ -4,10 +4,10 @@ bundle:
   name: books_databricks
   uuid: 32595384-0614-4a1f-9a8f-4927f7d9adb3
 
-artifacts:
-  python_artifact:
-    type: whl
-    build: python -m build --wheel
+#artifacts:
+#  python_artifact:
+#    type: whl
+#    build: python -m build --wheel
 
 include:
   - resources/*.yml
@@ -32,6 +32,3 @@ targets:
       root_path: /Workspace/Users/anastasiia.kononova@adastragrp.com/.bundle/${bundle.name}/${bundle.target}
     run_as:
       user_name: anastasiia.kononova@adastragrp.com
-    permissions:
-      - user_name: anastasiia.kononova@adastragrp.com
-        level: CAN_MANAGE

@@ -2,7 +2,7 @@
 resources:
   jobs:
     books_databricks_job:
-      name: books_databricks_job${bundle.target}
+      name: books_databricks_job_${bundle.target}
 
       trigger:
         # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
@@ -18,6 +18,10 @@ resources:
         - task_key: notebook_task
           notebook_task:
             notebook_path: ../src/notebook.ipynb
+          libraries:
+            - pypi:
+                package: requests
+          max_retries: 0
 
         - task_key: refresh_pipeline
           depends_on:
@@ -28,10 +32,12 @@ resources:
         - task_key: main_task
           depends_on:
             - task_key: refresh_pipeline
-          environment_key: default
           python_wheel_task:
             package_name: books_databricks
             entry_point: main
+          libraries:
+            - whl: ../dist/*.whl
+          max_retries: 0
 
       # A list of task execution environment specifications that can be referenced by tasks of this job.
       environments:
