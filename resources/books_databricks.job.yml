@@ -18,9 +18,6 @@ resources:
         - task_key: notebook_task
           notebook_task:
             notebook_path: ../src/notebook.ipynb
-          libraries:
-            - pypi:
-                package: requests
           max_retries: 0
 
         - task_key: refresh_pipeline
