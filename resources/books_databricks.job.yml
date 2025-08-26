@@ -36,9 +36,6 @@ resources:
           python_wheel_task:
             package_name: books_databricks
             entry_point: main
-          libraries:
-            - whl: ../dist/*.whl
-          max_retries: 0
 
       # A list of task execution environment specifications that can be referenced by tasks of this job.
       environments:
@@ -48,5 +45,4 @@ resources:
           # https://docs.databricks.com/api/workspace/jobs/create#environments-spec
           spec:
             environment_version: "4"
-            dependencies:
-              - ../dist/*.whl
+
