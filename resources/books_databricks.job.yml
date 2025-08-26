@@ -31,7 +31,7 @@ resources:
             - task_key: refresh_pipeline
           environment_key: default
           python_wheel_task:
-            package_name: books_databricks
+            package_name: testing_dab
             entry_point: main
 
       # A list of task execution environment specifications that can be referenced by tasks of this job.
