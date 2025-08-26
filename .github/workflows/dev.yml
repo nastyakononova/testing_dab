@@ -59,6 +59,9 @@ jobs:
 #       - run: pip install -r requirements.txt
 #         working-directory: .github/support
       # Build the wheel
+      - name: Build books_databricks wheel
+        run: |
+          python setup.py bdist_wheel
 
       - uses: databricks/setup-cli@main
 
