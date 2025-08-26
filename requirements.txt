@@ -2,3 +2,4 @@ pytest
 databricks-connect==14.3.0
 pyspark==3.5.0
 wheel
+books_databricks==1.0.0
