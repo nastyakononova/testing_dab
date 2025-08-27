@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import books_databricks
 
 setup(
     name="books_databricks",  # Replace with your package name
