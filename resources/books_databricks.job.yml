@@ -33,6 +33,8 @@ resources:
           python_wheel_task:
             package_name: books_databricks
             entry_point: main
+          libraries:
+            - whl: dbfs:/tmp/books_databricks.whl
 
       # A list of task execution environment specifications that can be referenced by tasks of this job.
       environments:
