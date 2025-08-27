@@ -30,7 +30,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Upload wheel to DBFS
-        run: databricks fs cp dist/books_databricks-*.whl dbfs:/tmp/books_databricks.whl
+        run: databricks fs cp dist/books_databricks-*.whl /Volumes/workspace/wheels/wheel/books_databricks-0.0.1-py3-none-any.whl
 
       - uses: databricks/setup-cli@main
 
@@ -63,7 +63,7 @@ jobs:
           python setup.py bdist_wheel
 
       - name: Upload wheel to DBFS
-        run: databricks fs cp dist/books_databricks-*.whl dbfs:/tmp/books_databricks-$(date +%s).whl
+        run: databricks fs cp dist/books_databricks-*.whl /Volumes/workspace/wheels/wheel/books_databricks-0.0.1-py3-none-any.whl
 
       - uses: databricks/setup-cli@main
 
