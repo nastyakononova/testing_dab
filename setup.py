@@ -8,7 +8,7 @@ setup(
     url='https://databricks.com',
     package_dir={'': 'src'},
     packages=find_packages(where='src'),
-     entry_points={
+    entry_points={
     'group_1': 'run=books_databricks.main:main'
     },
     install_requires=[
